@@ -13,6 +13,9 @@ class AuthController extends Controller
     // Show register page
     public function showRegister()
     {
+        if (Auth::check()) {
+            return redirect()->route('dashboard');
+        }
         return Inertia::render('Auth/Register');
     }
 
